@@ -105,3 +105,23 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
     
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
+# ይህንን ፋንክሽን ወይም አዝራር በ main.py ውስጥ ካሉ ሃንድለሮችህ ጋር ታዋህደዋለህ
+@dp.message(F.text == "🎮 ጨዋታዎች")
+async def games_handler(message: types.Message):
+    keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton(
+                    text="🎮 Kana Games ጫወት (Play)", 
+                    url="https://t.me/kanagamesethiopia"
+                )
+            ]
+        ]
+    )
+    await message.answer(
+        "እንኳን ወደ **Asham Games** በደህና መጡ! 🚀\n\nከታች ያለውን አዝራር በመጫን ጨዋታዎቹን መጫወት መጀመር ይችላሉ፦",
+        reply_markup=keyboard,
+        parse_mode="Markdown"
+    )
