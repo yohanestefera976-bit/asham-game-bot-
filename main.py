@@ -1,5 +1,9 @@
 import asyncio
-import logging
+import loggingawait message.answer(
+    "የሚፈልጉትን ጨዋታ ከዚህ በታች ከሉት ይምረጡ (በቅርብ ቀን ይለቀቃል!):",
+    reply_markup=keyboard  # ይህ አዝራሩን ከመልእክቱ ጋር እንዲያያዝ ያደርጋል
+)
+
 import sqlite3
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
