@@ -3,7 +3,7 @@ import logging
 import sqlite3
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
-from aiogram.utils.keyboard import InlineKeyboardBuilder, ReplyKeyboardBuilder
+from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
 TOKEN = "8670073050:AAHb2D2WZ-q5dfIoH78jCqjCGzdT90dgFbo"
 
@@ -56,7 +56,7 @@ def get_main_menu():
     builder.button(text="💰 ሒሳቤ (Balance)")
     builder.button(text="💳 ገንዘብ ገቢ ማድረግ")
     builder.button(text="🎮 ጨዋታዎች")
-    builder.adjust(2, 1) # አቀማመጡን በቅደም ተከተል ማድረግ
+    builder.adjust(2, 1)
     return builder.as_markup(resize_keyboard=True)
 
 @dp.message(Command("start"))
@@ -90,7 +90,7 @@ async def check_balance(message: types.Message):
 
 @dp.message(lambda message: message.text == "💳 ገንዘብ ገቢ ማድረግ")
 async def deposit_handler(message: types.Message):
-    await message.answer("💳 ገንዘብ ገቢ ለማድረግ እባክዎ በቴሌብር (Telebirr) ወይም በንግድ ባንክ ወደ አዘጋጁ አካውንት ያስተላልፉ።", parse_mode="Markdown")
+    await message.answer("💳 ገንዘብ ገቢ ለማድረግ እባክዎ በቴሌብር (Telebirr) ወይም በባንክ አካውንታችን ይጠቀሙ።", parse_mode="Markdown")
 
 @dp.message(lambda message: message.text == "🎮 ጨዋታዎች")
 async def games_handler(message: types.Message):
@@ -104,3 +104,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+    
